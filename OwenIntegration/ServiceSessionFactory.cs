@@ -6,10 +6,16 @@ namespace OwenIntegration
 {
     public class ServiceSessionFactory
     {
-        public ServiceSession create(IRequest request)
+        public SessionIdProvider sessionIdProvider;
+
+        public ServiceSessionFactory(SessionIdProvider _sessionIdProvider)
         {
-            ServiceSession test = new ServiceSession();
-            return test;
+            sessionIdProvider = _sessionIdProvider;
+        }
+        public ServiceSession create(Request request)
+        {
+            ServiceSession RabbitSession = new ServiceSession(sessionIdProvider.getNewId(), request);
+            return RabbitSession;
         }
     }
 }

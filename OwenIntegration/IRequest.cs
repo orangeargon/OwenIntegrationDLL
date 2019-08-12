@@ -6,5 +6,6 @@ namespace OwenIntegration
 {
     public interface IRequest
     {
+
     }
 }

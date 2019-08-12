@@ -16,12 +16,12 @@ namespace OwenIntegration
         /// <param name="id">Идентификатор сессии</param>
         /// <param name="status">Статус сессии</param>
         /// <param name="payload">Запрос</param>
-        public ServiceSession(string type, string id, string status, string payload)
+        public ServiceSession(string _type, string _id, string _status, string _payload)
         {
-            request.type = type;
-            request.id = id;
-            request.status = status;
-            request.payload = payload;
+            request.type = _type;
+            request.id = _id;
+            request.status = _status;
+            request.payload = _payload;
         }
 
         /// <summary>
@@ -29,33 +29,44 @@ namespace OwenIntegration
         /// <param name="id">Идентификатор сессии</param>
         /// <param name="status">Статус сессии</param>
         /// <param name="payload">Запрос</param>
-        public ServiceSession(string id, string status, string payload)
+        public ServiceSession(string _id, string _status, string _payload)
         {
             request.type = "request";
-            request.id = id;
-            request.status = status;
-            request.payload = payload;
+            request.id = _id;
+            request.status = _status;
+            request.payload = _payload;
         }
 
         /// <summary>
         /// </summary>
         /// <param name="id">Идентификатор сессии</param>
         /// <param name="payload">Запрос</param>
-        public ServiceSession(string id, string payload)
+        public ServiceSession(string _id, string _payload)
         {
             request.type = "request";
-            request.id = id;
+            request.id = _id;
             request.status = RequestStatus.New;
-            request.payload = payload;
+            request.payload = _payload;
+        }
+
+        /// <summary>
+        /// </summary>
+        /// </summary>
+        /// <param name="id">Идентификатор сессии</param>
+        /// <param name="_request">Экземпляр запроса</param>
+        public ServiceSession(string _id, Request _request)
+        {
+            request = _request;
+            request.id = _id;
         }
 
         /// <summary>
         /// </summary>
         /// <param name="id">Идентификатор сессии</param>
-        public ServiceSession(string id)
+        public ServiceSession(string _id)
         {
             request.type = "request";
-            request.id = id;
+            request.id = _id;
             request.status = RequestStatus.New;
             request.payload = "";
         }

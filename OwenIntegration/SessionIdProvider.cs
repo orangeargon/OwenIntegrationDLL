@@ -6,9 +6,10 @@ namespace OwenIntegration
 {
     public class SessionIdProvider
     {
-        public void getNewId()
+        public string getNewId()
         {
-
+            string id = "";
+            return id;
         }
     }
 }

@@ -7,10 +7,21 @@ namespace OwenIntegration
     public class ServiceSessionController
     {
         public List<ServiceSession> sessions;
+        public ServiceSessionFactory sessionFactory;
+        public ServiceBus serviceBus;
+        public string endpointId;
 
-        public void startSession(IObserver client, IRequest request)
+        public ServiceSessionController(string _endpointId, ServiceBus _serviceBus, ServiceSessionFactory _sessionFactory)
         {
-            ServiceSession = new ServiceSession();
+            sessionFactory = _sessionFactory;
+            serviceBus = _serviceBus;
+            endpointId = _endpointId;
+            serviceBus.listen(endpointId, new CrudServer() /*TODO*/);
+        }
+
+        public void startSession(Observer client, Request request)
+        {
+            ServiceSession a = new ServiceSession(new Request);
         }
     }
 }
